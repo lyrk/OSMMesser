@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Copyright (c) 2014, Thomas Skowron
 All rights reserved.
 
@@ -9,10 +10,16 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."""
 
+import sys
 import argparse
 from math import radians, cos, sin, asin, sqrt
 
-from imposm.parser import OSMParser
+try:
+	from imposm.parser import OSMParser
+except ImportError as e:
+	print("""It appears that imposm.parser is not installed.
+In order to install it, type: pip install imposm.parser""")
+	sys.exit(0)
 
 class OSMMeter(object):
 	def __init__(self, filepath):
@@ -82,10 +89,14 @@ class OSMMeter(object):
 		return EARTHRAD * c
 
 
-if __name__ == "__main__":
+def main():
 	parser = argparse.ArgumentParser(description="Measuring way lengths in OSM files.")
 	parser.add_argument('osmfile', help="file to be processed")
 
 	args = parser.parse_args()
 	o = OSMMeter(args.osmfile)
 	o.calc_all_ways()
+
+
+if __name__ == "__main__":
+	main()

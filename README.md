@@ -13,7 +13,7 @@ If you want to measure only specific relations or ways, filter the .osm file wit
 __BSD 2 clause license. No bullshit.__
 
 
-Copyright (c) 2014, Lyrk UG (haftungsbeschränkt)
+Copyright (c) 2014, Thomas Skowron
 
 All rights reserved.
 
