@@ -1,6 +1,6 @@
 # OSMMesser
 
-OSMMesser is a tool for measuring all ways in OpenStreetMap files. Works on Python 2.7 and PyPy.
+OSMMesser is a tool for measuring ways in OpenStreetMap files. Works on Python 2.7 and PyPy.
 
 
 ## Installation
