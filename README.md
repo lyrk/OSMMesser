@@ -1,12 +1,30 @@
 # OSMMesser
 
-OSMMesser is a tool for measuring all ways in OpenStreetMap files. Working on Python 2.7 and PyPy.
+OSMMesser is a tool for measuring all ways in OpenStreetMap files. Works on Python 2.7 and PyPy.
 
-If you want to measure only specific relations or ways, filter the .osm file with a tool like [osmfilter](m.m.i24.cc/osmfilter.c).
 
-## Dependencies
+## Installation
 
-* imposm.parser
+Run `python setup.py install`.
+
+
+## Usage
+
+	osmmesser.py [-h] [--filter FILTER] [-s] osmfile
+
+	Measuring way lengths in OSM files.
+
+	positional arguments:
+	  osmfile          file to be processed
+
+	optional arguments:
+	  -h, --help       show this help message and exit
+	  --filter FILTER  filtering arguments for osmfilter, as specified in
+	                   http://wiki.openstreetmap.org/wiki/Osmfilter, e.g.
+	                   "highway=track"
+	  -s, --silent     prints out only the final result, no progress will be show
+	                   while processing
+
 
 ## License
 
